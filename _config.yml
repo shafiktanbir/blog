@@ -3,8 +3,8 @@ title: "My Blog"
 description: "A personal blog about programming and technology"
 author: "Shafikul"
 email: ""
-url: "" # Your GitHub Pages URL will be: https://username.github.io/repository-name
-baseurl: "" # Leave empty if using project pages, or "/repository-name" if using project pages
+url: "https://shafiktanbir.github.io" # Your GitHub Pages URL
+baseurl: "/blog" # Repository name for GitHub Pages project pages
 
 # Build Settings
 markdown: kramdown

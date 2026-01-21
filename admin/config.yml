@@ -2,7 +2,7 @@
 # For GitHub Pages deployment, use the GitHub backend
 backend:
   name: github
-  repo: GITHUB_USERNAME/REPO_NAME # TODO: Replace with your actual GitHub username/repo (e.g., shafikul/shafikul-gitblock)
+  repo: shafiktanbir/blog # Your GitHub repository
   branch: main # Branch to update
   base_url: https://api.netlify.com # For Netlify Identity authentication
   auth_endpoint: auth
@@ -29,8 +29,8 @@ media_library:
     publicKey: demopublickey # TODO: Replace with your Uploadcare public key or use default uploads
 
 # Site URL
-site_url: https://GITHUB_USERNAME.github.io/REPO_NAME # TODO: Replace with your actual GitHub Pages URL
-display_url: https://GITHUB_USERNAME.github.io/REPO_NAME
+site_url: https://shafiktanbir.github.io/blog
+display_url: https://shafiktanbir.github.io/blog
 
 # Logo and branding
 logo_url: /assets/images/logo.png # Optional: Add your logo
