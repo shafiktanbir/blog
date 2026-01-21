@@ -1,0 +1,56 @@
+# Site Settings
+title: "My Blog"
+description: "A personal blog about programming and technology"
+author: "Shafikul"
+email: ""
+url: "" # Your GitHub Pages URL will be: https://username.github.io/repository-name
+baseurl: "" # Leave empty if using project pages, or "/repository-name" if using project pages
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Shafikul"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Theme (optional - we'll use custom styling)
+theme: null
+
+# Social Links (customize these)
+social:
+  github: ""
+  twitter: ""
+  linkedin: ""
+
+# Reading time plugin settings
+reading_time:
+  enabled: true
+  words_per_minute: 200

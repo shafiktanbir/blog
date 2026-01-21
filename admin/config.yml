@@ -1,0 +1,120 @@
+# Backend Configuration
+# For GitHub Pages deployment, use the GitHub backend
+backend:
+  name: github
+  repo: GITHUB_USERNAME/REPO_NAME # TODO: Replace with your actual GitHub username/repo (e.g., shafikul/shafikul-gitblock)
+  branch: main # Branch to update
+  base_url: https://api.netlify.com # For Netlify Identity authentication
+  auth_endpoint: auth
+
+# Alternative: For local development, uncomment this block and comment out the GitHub backend above
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# Editorial Workflow - Enable draft/review/publish workflow
+publish_mode: editorial_workflow
+
+# Local backend for testing (run: npx decap-server)
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+
+# Media and Assets
+media_folder: "assets/images/uploads" # Media files will be stored here
+public_folder: "/assets/images/uploads" # The src attribute for uploaded media
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey # TODO: Replace with your Uploadcare public key or use default uploads
+
+# Site URL
+site_url: https://GITHUB_USERNAME.github.io/REPO_NAME # TODO: Replace with your actual GitHub Pages URL
+display_url: https://GITHUB_USERNAME.github.io/REPO_NAME
+
+# Logo and branding
+logo_url: /assets/images/logo.png # Optional: Add your logo
+
+# Collections
+collections:
+  # Blog Posts Collection
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string", hint: "Post title"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Author", name: "author", widget: "string", default: "Shafikul"}
+      - {label: "Categories", name: "categories", widget: "list", required: false, hint: "Categories for organization"}
+      - {label: "Tags", name: "tags", widget: "list", required: false, hint: "Tags for better searchability"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false, hint: "Main post image"}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Short description (used in previews and SEO)"}
+      - {label: "Published", name: "published", widget: "boolean", default: true, hint: "Toggle to publish/unpublish"}
+      - {label: "Body", name: "body", widget: "markdown", hint: "Post content (supports Markdown)"}
+    
+    # View filters
+    view_filters:
+      - label: "Published"
+        field: published
+        pattern: true
+      - label: "Drafts"
+        field: published
+        pattern: false
+    
+    # View groups
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Author
+        field: author
+
+  # Pages Collection
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "about.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/about/"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      
+      - label: "Home Page"
+        name: "home"
+        file: "index.html"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+
+  # Site Settings Collection
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Configuration"
+        name: "config"
+        file: "_config.yml"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Author", name: "author", widget: "string"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Base URL", name: "baseurl", widget: "string", required: false}
+          - {label: "Site URL", name: "url", widget: "string", required: false}
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "GitHub", name: "github", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}

@@ -1,0 +1,24 @@
+<header class="site-header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="{{ '/' | relative_url }}" class="brand-link">{{ site.title }}</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle navigation" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="navbar-menu" id="nav-menu">
+                <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
+                <li><a href="{{ '/about' | relative_url }}" class="nav-link">About</a></li>
+                <li><a href="{{ '/search' | relative_url }}" class="nav-link">Search</a></li>
+                {% if site.social.github %}
+                <li><a href="{{ site.social.github }}" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="home-container">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ site.title }}</h1>
+            <p class="hero-description">{{ site.description }}</p>
+        </div>
+    </section>
+
+    <section class="posts-section">
+        <div class="container">
+            <h2 class="section-title">Latest Posts</h2>
+            
+            {% if site.posts.size > 0 %}
+                <div class="posts-grid">
+                    {% for post in site.posts %}
+                        {% include post-card.html post=post %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-posts">
+                    <p>No posts yet. Check back soon!</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</div>

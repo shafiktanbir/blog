@@ -1,0 +1,27 @@
+{
+  "name": "shafikul-gitblock",
+  "version": "1.0.0",
+  "description": "A dynamic Jekyll blog with Decap CMS for easy content management",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "cms-proxy": "npx decap-server",
+    "dev-cms": "concurrently \"npm run dev\" \"npm run cms-proxy\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/YOUR_REPO.git"
+  },
+  "keywords": [
+    "jekyll",
+    "blog",
+    "decap-cms",
+    "github-pages"
+  ],
+  "author": "Shafikul",
+  "license": "MIT",
+  "devDependencies": {
+    "decap-server": "^3.0.0",
+    "concurrently": "^8.2.2"
+  }
+}
